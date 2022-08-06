@@ -1,0 +1,47 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <script>
+        
+ const DataEntered = [];
+function appendString() {
+    DataEntered.push(document.getElementById('dataEntered').value);
+    for (let i = 0;i<DataEntered.length;i++){
+        $('#results').html(DataEntered+";");
+    }
+}
+
+function stringSearch() {
+    const arrstringIndex = DataEntered.findIndex(document.getElementById('search').value);
+    const arrstringElement = (DataEntered.indexOf(document.getElementById('search').value) > -1);
+    $('#results').html(arrstringElement);
+    }
+    function sortArray() {
+   DataEntered.sort();
+   for (let i = 0;i<DataEntered.length;i++){
+    $('#results').html(DataEntered+";");
+   }
+    }
+    function reverseArray() {
+    DataEntered.reverse();
+    for (let i = 0;i<DataEntered.length;i++){
+    $('#results').html(DataEntered+";");
+    }
+    }
+    </script>
+</head>
+<body>
+<h2>Lab 11</h2>
+Enter a string: <input type="text" id="dataEntered">
+<button type="button" onclick="appendString()">Submit</button>
+<br /><br />
+Search for this: <input type="text" id="search">
+<button type=button" onclick="stringSearch()">Search</button>
+<br /><br />
+<button type="button" id="sort" onclick="sortArray()">Sort the Array</button> <button type="button" id="reverse" onclick="reverseArray()">Reverse the Array</button> 
+<br /><br />
+<strong>My Array Output</strong><br/>
+<span id="results"> *** </span>
+</body></html>
