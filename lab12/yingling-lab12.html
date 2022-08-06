@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script>
+    function getGCD(a,b){
+    var gcd = !b?a:getGCD(b,a%b);
+    $('#results').html(gcd);
+    }
+
+    var i=0;
+    function getprimeNums(num) {
+    var Nums  = [];
+    var i;
+    var j;
+    var primeNums = [];
+    for (i = 2; i <= num; ++i) {
+        if (!Nums [i]) {
+            primeNums.push(i);
+            for (j = i << 1; j <= num; j += i) {
+                Nums[j] = true;
+            }
+        }
+    }
+    for (let k = 0;k<primeNums.length;k++){
+ $('#primeresults').html(primeNums+"<br>");
+    }
+}
+</script>
+
+</head>
+<body>
+    <h2>Find GCD of two numbers</h2>
+    Enter 1st number: <input type="text" id="num1">
+    Enter 2nd number: <input type="text" id="num2">
+    <button type="button" onclick="getGCD(document.getElementById('num1').value,document.getElementById('num2').value)">Calculate</button>
+    <br>
+    <span id="results"> *** </span>
+    <br>
+    <br>
+    <br>
+    <h2>List all prime numbers up to user's number</h2>
+    Enter number: <input type="text" id="userNum">
+    <button type="button" onclick="getprimeNums(document.getElementById('userNum').value)">Calculate</button>
+    <br>
+    <span id="primeresults"> *** </span>
+<h2>Charles Yingling - IT 2320 - Lab 12</h2>
+</body>
+
+</html>
